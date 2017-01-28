@@ -1,0 +1,48 @@
+
+				{# add intro story #}
+				{% for block in entry.contentMatrix %}
+					{% switch block.type %}
+					
+						{% case "story" %}
+							<h2 class="tour-title">{{ block.storyTitle }}</h3>
+					
+					{% endswitch %}
+				{% endfor %}
+				
+				{# add picture array #}	
+				<div class="tour-wrapper ms-gallery1"> 
+					<div class="master-slider ms-skin-light-6 round-skin ms-wk" id="masterslider">
+
+					{% for block in entry.contentMatrix %}
+						{% switch block.type %}
+						
+							{% case "pic" %}
+								
+								<!-- start slide -->
+								<div class="ms-slide tour-photo" data-delay="5" >
+									{% set img = block.picImg[0] %}
+									<img src="{{ img.url }}" data-src="{{ img.url }}" alt="{{ img.title }}" />
+
+									<div style="height: 20px">&nbsp;</div>
+
+<!--
+							        	style="left:100px; top:620px; width: 500px; height: 80px; padding: 15px;" 
+-->
+									{% if block.picName %}
+									<div class="ms-layer tour-stop"
+							        	data-effect="rotateback(-360|360,400|900,tr)"
+							        	data-delay=0
+							        	data-ease="easeOutQuad"
+							        	data-type="text"
+							        	data-origin="br">
+										<h3 class="tour-image" style="top:10; left:30px">{{ block.picName }}</h3>
+										<p class="" style="top:25px; left:30px;">{{ block.picCaption }}</p>
+									</div>
+									{% endif %}
+								</div>
+								<!-- end slide -->
+									
+						{% endswitch %}
+					{% endfor %}
+					</div>
+				</div>	

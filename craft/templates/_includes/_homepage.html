@@ -1,0 +1,70 @@
+				{% for block in entry.contentMatrix %}
+					{% switch block.type %}
+					
+						{% case "story" %}
+							<h2>{{ block.storyTitle }}</h3>
+							{{	block.storyBody }}
+					
+						{% case "figure" %}
+						
+							<figure style="float:{{ block.figureAlign }}">
+								{%	if block.figureUrl %}
+									{{ block.figureUrl }}
+								{%	else %}
+									{% set img = block.figureImg.first() %}
+									<img src="{{ img.url }}" alt="{{ img.title }}" title="{{ img.title }}" />
+								{%	endif %}
+							</figure>
+								
+						{% case "calendar" %}
+
+							{% set thisYear = date(block.calDate).format('Y') %}
+
+							<div class="calendar-wrapper">
+							<h2>{{ thisYear }}</h2>
+							<div class="calendar">
+								{% for month in 1..12 %}
+
+								{% set thisMonth = date(month~'/1/'~thisYear) %}
+								{% set endMonth = thisMonth.format('t') %}
+								{% set dayOfWeek = thisMonth.format('w') %}
+								{% set firstWeekEnd = thisMonth|date_modify("-1 days").format('t') %}
+								{% set firstWeekStart = thisMonth|date_modify("-#{dayOfWeek} days")|date('d') %}
+
+								{% if block.calBooked.options[month - 1].selected %}
+								<div class="month booked">
+								{% else %}
+								<div class="month">
+								{% endif %}
+									<h4>{{ thisMonth.format('F') }}</h4>
+									<div class="day-wrapper">
+										<p class="day heading">S</p>
+										<p class="day heading">M</p>
+										<p class="day heading">T</p>
+										<p class="day heading">W</p>
+										<p class="day heading">T</p>
+										<p class="day heading">F</p>
+										<p class="day heading">S</p>
+
+										{% if firstWeekStart > 1 %}
+											{% for j in firstWeekStart..firstWeekEnd %}
+												<p class="day dimmed">{{ j }}</p>
+											{% endfor %}
+										{% endif %}
+
+										{% set endDay = (42 - (dayOfWeek + endMonth)) %}
+										{% for j in 1..endMonth %}
+											<p class="day">{{ j }}</p>
+										{% endfor %}
+
+										{% for j in 1..endDay %}
+											<p class="day dimmed">{{ j }}</p>
+										{% endfor %}
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+							</div>
+					{% endswitch %}
+					
+				{% endfor %}

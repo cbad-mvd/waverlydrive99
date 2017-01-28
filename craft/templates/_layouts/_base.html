@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="ie ieold ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="ie ieold ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="ie ieold ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="ie ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> 
+<html lang="en"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head>
+	<meta charset="utf-8">
+
+	<script>
+		// Picture element HTML5 shiv
+		document.createElement( "picture" );
+	</script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.1/picturefill.min.js" async></script>
+	<script src="/assets/js/url.min.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery.colorbox-min.js"></script>
+
+
+
+	<script src="https://use.typekit.net/isv4cma.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+	
+	<link href='http://fonts.googleapis.com/css?family=Crushed' rel='stylesheet' type='text/css'>
+	<link href="./assets/css/reset.css?1716" rel="stylesheet" type="text/css"  media="all"  />
+	<link href="./assets/css/mixins.css?1716" rel="stylesheet" type="text/css"  media="all"  />
+	<link href="./assets/css/screen.css?1716" rel="stylesheet" type="text/css"  media="all"  />
+	<link media="screen" rel="stylesheet" href="./assets/css/colorbox.css" />
+	<link media="screen" rel="stylesheet" href="./assets/css/colorbox-form.css" />
+
+
+	<title>{{ entry.title }} - {{ siteName }}</title>
+
+	{% block head %}
+	{# page based meta data goes here #}
+	{% endblock %}
+
+
+</head>
+
+<body>
+		<div id="pg-title">
+			<h1>
+				{{ site_vars.siteTitle }}
+			</h1>
+			<p>{{ site_vars.siteTagLine }}</p>
+		</div>
+		<div href="#" class="debug"><a>???</a></div>
+		<a href="#" class="menu"><span>≡</span> Menu</a>
+<div class="drawer">
+	<nav class="mobile">
+		<ul class="nav nav-tabs nav-stacked">
+            <li id="currentFooter"><a href="/">Home</a></li>
+			{% set typesInOrder = ['amenities', 'activities', 'photos', 'rates', 'map', 'contact'] %}
+			{% for type in typesInOrder %}
+			    {% for entry in craft.entries.type(type) %}
+			        <li><a href="{{ type }}">{{ entry.title }}</a></li>
+			    {% endfor %}
+			{% endfor %}
+		</ul>
+	</nav>
+
+	<div id="page">
+
+		<header id="top-header">
+			{% block header %}
+			{% endblock %}
+		</header>
+
+		<main role="main">
+			{% block main %}
+			{% endblock %}
+		</main>
+
+		<footer id="footer">
+			{% block footer %}
+			{% endblock %}
+			<p> &copy; {{ 'now'|date('Y') }} Waverly99.com. All rights reserved. </p>
+		</footer>
+	</div>
+</div>
+
+	<script type="text/javascript">
+
+		$('#navMain li').removeAttr('id');
+		$('#footer li').removeAttr('id');
+
+		page = $.url('1');
+		if ( !page ) {
+			page = '"/"';
+		}
+
+		$( "#navMain li a[href="+page+"]" ).parent().attr('id', 'currentNavMain');
+		$( "#footer li a[href="+page+"]" ).parent().attr('id', 'currentFooter');
+
+		$( "#bread p").text($( "#navMain li a[href="+page+"]" ).text());
+
+    $('.menu').click(function(e){
+      $('.drawer').toggleClass('active');
+      e.preventDefault();
+    });
+
+	$('.pg-image a').colorbox();
+
+
+
+/**** debug js ****/
+    $('.debug a').click(function(e){
+    	var t = $(this).text();
+
+    	if ( t == '???' ) {
+    		alert($(window).width()+' - '+$(document).width()+' - '+$('body').width());
+    	}
+    	e.preventDefault();
+    });
+
+
+	</script>
+</body>
+</html>

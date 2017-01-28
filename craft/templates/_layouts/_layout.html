@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<title>{{ siteName }}</title>
+
+	<style type="text/css">
+		body { margin: 50px; font-family: HelveticaNeue, sans-serif; }
+	</style>
+</head>
+<body>
+	<header>
+		<h1>{{ siteName }}</h1>
+	</header>
+
+	<main role="main">
+		{% block main %}
+		{% endblock %}
+		{% block jimbo %}
+		{% endblock %}
+	</main>
+</body>
+</html>

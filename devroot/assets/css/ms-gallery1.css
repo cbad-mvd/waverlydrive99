@@ -1,0 +1,27 @@
+.ms-container {
+	background: url(ms-img/stage.jpg) no-repeat center 43%;
+	background-size: 70% 25%;
+}
+.ms-gallery1 .master-slider,.ms-container,.ms-view{
+	-moz-transform: translate3d(0,0,1px);
+	position: relative;
+}
+
+.ms-gallery1 .ms-view{background:transparent;}
+
+.ms-gallery1 .ms-slide {
+	text-shadowX: 0px 1px 0 white;
+	font-familyX: "Lato" , sans-serif;
+}
+
+.ms-layer.tour-stop {
+	left: 600px; 
+	top: 680px; 
+	width: 50%; 
+	height: 17.5%; 
+	padding: 15px;
+	font-size: 1.5em;
+}
+
+.ms-skin-light-6 .ms-nav-next { right: -65px; }
+.ms-skin-light-6 .ms-nav-prev { left: -65px; }

@@ -1,0 +1,27 @@
+				{# add intro story #}
+				{% for block in entry.contentMatrix %}
+					{% switch block.type %}
+					
+						{% case "story" %}
+							<h3 class="attraction-group">{{ block.storyTitle }}</h3>
+					
+						{% case "attraction" %}
+							<div class="attraction">
+								<img class="pic" src="{{ block.attrImg[0].getUrl('attractionThumb') }}" width="{{ block.attrImg[0].getWidth('attractionThumb') }}" height="{{ block.attrImg[0].getHeight('attractionThumb') }}" />
+								<div class="info">
+									<div class="info-content">
+										<h4 class="">{{ block.attrName }}</h4>
+										{{ block.attrBody }}
+									</div>
+									<div class="info-contact">
+										<p class="info-phone">{{ block.attrPhone }}</p><a class="info-url" target="_blank" href="http://{{ block.attrLink }}">{{ block.attrLink }}</a>
+									</div>
+								</div>
+								<a class="map" target="_blank" href="{{ block.attrMapLink }}">
+									<img src="{{ block.attrImg[1].getUrl('attractionThumb') }}" />
+								</a>
+
+							</div>
+					
+					{% endswitch %}
+				{% endfor %}

@@ -1,0 +1,75 @@
+				{% for block in entry.contentMatrix %}
+					{% switch block.type %}
+					
+						{% case "story" %}
+							<h2>{{ block.storyTitle }}</h2>
+							{{  block.storyBody }}
+
+					{% endswitch %}                    
+				{% endfor %}
+
+
+{% macro errorList(errors) %}
+	{% if errors %}
+		<ul class="errors">
+			{% for error in errors %}
+				<li>{{ error }}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endmacro %}
+
+{% from _self import errorList %}
+
+<div class="contact-section">
+	<form class="contact-form styled-form" method="post" action="" accept-charset="UTF-8">
+		{{ getCsrfInput() }}
+
+		<input type="hidden" name="action" value="contactForm/sendMessage">
+		<input type="hidden" name="redirect" value="contact/thanks">
+
+		<div class="contact-wrapper">
+			<div class="contact-field name">
+				<h6><label for="fromName">Your Name: <span class="required">*</span></label></h6>
+				<input id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
+				{{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+			</div>
+			<div class="contact-field email">
+				<h6><label for="fromEmail">Your Email: <span class="required">*</span></label></h6>
+				<input id="fromEmail" type="text" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
+				{{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+			</div>
+			<div class="contact-field subject">
+				<h6><label for="subject">Subject: <span class="required">*</span></label></h6>
+				<input id="subject" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+				{{ message is defined and message ? errorList(message.getErrors('subject')) }}
+			</div>
+			<div class="contact-field message">
+				<h6><label for="message">Message: <span class="required">*</span></label></h6>
+				<textarea rows="10" cols="40" id="message" name="message">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
+				{{ message is defined and message ? errorList(message.getErrors('message')) }}
+			</div>
+			<div class="contact-field submit">
+				<input type="submit" value="Send">
+			</div>
+		</div>
+	</form>
+	<div class="contact-static">
+		<h6><label>Web Site</label></h6>
+		<p>{{ companyInfo.contactWeb }}</p>
+
+		<h6><label>E-MAIL</label></h6>
+		<p>{{ companyInfo.contactEmail }}</p>
+
+		<h6><label>TELEPHONE</label></h6>
+		<p>{{ companyInfo.contactPhone }}</p>
+
+		<h6><label>ADDRESS</label></h6>
+		<p>companyInfo.contactName</p>
+		<p>companyInfo.contactAddr1</p>
+		{% if companyInfo.contactAddr2 %}<p>companyInfo.contactAddr2</p>{% endif %}
+		<p>{{ companyInfo.contactCity }}, {{ companyInfo.contactState }} &nbsp; {{ companyInfo.contactZip }}</p>
+		<p>N21 3NA</p>
+		<p>England</p>	
+	</div>
+</div>

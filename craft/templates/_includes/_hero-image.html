@@ -1,0 +1,21 @@
+	<div class="hero">
+{% if entry.pageHasHeroImg %}
+	{% if entry.pageImage.first() is empty %}
+		{% set heroImg = shuffle(site_vars.siteHeros)[0] %}		
+		<img src="{{ heroImg.url }}" alt="{{ heroImg.title }}" title="{{ heroImg.title }}" />
+	{% else %}
+		<img src="{{ entry.pageImage.first().url }}" alt="{{ entry.pageImage.first().title }}" title="{{ entry.pageImage.first().title }}" />
+	{% endif %}
+{% else %}
+		<hr>
+{% endif %}
+	</div>
+
+{#}
+	{% if entry.pageImage.first() is empty %}
+		{% set heroImg = shuffle(site_vars.siteHeros)[0] %}		
+		<img src="{{ heroImg.url }}" alt="{{ heroImg.title }}" title="{{ heroImg.title }}" />
+	{% else %}
+		<img src="{{ entry.pageImage.first().url }}" alt="{{ entry.pageImage.first().title }}" title="{{ entry.pageImage.first().title }}" />
+	{% endif %}
+#}

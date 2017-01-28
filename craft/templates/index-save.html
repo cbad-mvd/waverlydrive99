@@ -1,0 +1,159 @@
+{% extends "_layouts/_page" %}
+
+{% block head %}
+	<script type="text/javascript" src="assets/js/jquery.colorbox-min.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery.simpleWeather.min.js"></script>
+
+	<style type="text/css">
+	</style>
+{% endblock %}
+
+{% block header %}
+	<section class="hdr-wrapper">
+		<div class="siteLogo">
+			<a class="debug">
+			<img src="assets/img/top-logo.svg" alt="top logo" title="waverly99.com" />
+			</a>
+		</div>
+		<nav class="navMain">
+			<ul class="nav nav-tabs nav-stacked">
+	            <li><a href="/">Home</a></li>
+				{% set typesInOrder = ['amenities', 'activities', 'photos', 'rates', 'map', 'contact'] %}
+				{% for type in typesInOrder %}
+				    {% for entry in craft.entries.type(type) %}
+				        <li><a href="{{ type }}">{{ entry.title }}</a></li>
+				    {% endfor %}
+				{% endfor %}
+			</ul>
+		</nav>
+	</section>
+{% endblock %}
+
+{% block main %}
+	<div class="hero">
+		<img src="assets/photos/hero-lroom.jpg" alt="hero shot" title="waverly99.com" />
+	</div>
+	<div class="content">
+		<h2>Welcome to Waverly Drive #99</h3>
+			<p>
+Let our condo at Waverly Drive #99 be your headquarters for desert fun. Whether you’re looking for great outdoor activities, fine dining, shopping, casino action or just some rest and relaxation by the pool, you’ll find it here. Take a break from cold winter days and enjoy the warmth of the desert sun in beautiful Palm Springs, California!
+</p><p>
+<a href="https://www.google.com/maps/place/5245+E+Waverly+Drive/" target="_blank"><img src="http://maps.googleapis.com/maps/api/staticmap?center=5245+E+Waverly+Drive&zoom=15&scale=1&size=450x150&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C5245+E+Waverly+Drive" alt="Google Map of 5245 E Waverly Drive"></a>
+<!--
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26524.97138390912!2d-116.48582618518067!3d33.79627314453642!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80db1cc9e33a8971%3A0xcbe97a691b2a91d0!2s5245+E+Waverly+Dr+%2399%2C+Palm+Springs%2C+CA+92264!5e0!3m2!1sen!2sus!4v1454687701550" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+-->
+			</p><p>
+Waverly #99 is a special unit in a friendly, community oriented Condo complex. The patio, just steps from the pool, is offset in a garden-like setting, giving you privacy from the poolside traffic. On the lower level, ours is the only one with no unit above it giving you extra peace and quiet.
+			</p><p>
+We’ve provided all the comforts of home to make your stay comfortable and memorable. This one bedroom condo feels spacious, with two full baths, family room, dining room and kitchen. There are two wide-screen, high definition TV’s, a Bose Wave music system, microwave oven, washer/dryer and granite counters in the kitchen. 
+			</p><p>
+Draped in the majesty of the San Jacinto Mountains, this small community of condo dwellers offers a wonderful home for visitors to the desert. Thank you for checking out our site, and we hope you’ll become a guest soon!
+			</p>
+
+		{% for block in entry.contentMatrix %}
+			<h3>{{ block.pic }}</h3>
+			<p>{{ block.caption }}</p>
+			{% set img = block.img.first() %}
+			<img src="{{ img.url }}" width="150" alt="hero shot" title="waverly99.com" />
+		{% endfor %}
+
+	</div>
+{% endblock %}
+
+{% block footer %}
+	<section class="footer-content">
+		<div class="footer-body">
+			<h3>About Waverly Drive</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus molestie risus, a sodales odio pretium non. Donec ac neque sed elit scelerisque porttitor sit amet eu nisi. Pellentesque a libero nunc. Suspendisse sagittis posuere sapien. Suspendisse efficitur tristique erat, eget suscipit dui imperdiet laoreet. Suspendisse eget mollis nibh. </p>
+		</div>
+		<div id="footer-weather">
+			<h3>Palm Springs Weather<span id="weather-update"></span></h3>
+			<ul>
+				<li id="day0"></li>
+				<li id="day1"></li>
+				<li id="day2"></li>
+				<li id="day3"></li>
+			</ul>
+		</div>
+	</section>
+{% endblock %}
+
+{% block js %}
+
+	switch ( (Math.floor((Math.random() * 100) + 1)) % 5 ) {
+		case 0:
+			myImg = '<img src="assets/photos/hero-lroom.jpg" alt="hero shot" title="waverly99.com" />';
+			break;
+		case 1:
+			myImg = '<img src="assets/photos/hero-golf.jpg" alt="hero shot" title="waverly99.com" />';
+			break;
+		case 2:
+			myImg = '<img src="assets/photos/hero-windmills.jpg" alt="hero shot" title="waverly99.com" />';
+			break;
+		case 3:
+			myImg = '<img src="assets/photos/hero-lights.jpg" alt="hero shot" title="waverly99.com" />';
+			break;
+		default:
+			myImg = '<img src="assets/photos/hero-waverly.jpg" alt="hero shot" title="waverly99.com" />';
+			break;
+	}
+	myImg = '<img src="assets/photos/hero-waverly.jpg" alt="hero shot" title="waverly99.com" />';
+	$(".hero").html(myImg);
+
+	$.simpleWeather({
+		//woeid: '12796196', 
+		//woeid: '12521289',  //2357536', //2357536  
+		woeid: '12796378',
+		location: '',
+		unit: 'f',
+		success: function(weather) {
+			var html = "";
+			var sunny = ["31","32","33","34","36"];
+			var pcloudy = ["30","37","44"];
+			var cloudy = ["26","27","28","29"];
+			var showers = ["11","12","40"];
+			var rainy = ["9","10","17","18","35","45"];
+			var stormy = ["0","1","2","3","4","47"];
+			var snowy = ["13","14","15","16","41","42","43","46"];
+			var windy = ["24"];
+			var imgUrl = "";
+
+			$("#weather-update").html("Current Tempature: <span>"+weather.temp+"&deg;</span>");
+			for(var i=0;i<weather.forecast.length;i++) {
+				if ( i < 4 ) {
+					if ( $.inArray(weather.forecast[i].code, sunny) >= 0 ) {
+						imgUrl = 'assets/img/weather-sunny.svg';
+					} else if ( $.inArray(weather.forecast[i].code, pcloudy) >= 0 ) {
+						imgUrl = 'assets/img/weather-partly-sunny.svg';
+					} else if ( $.inArray(weather.forecast[i].code, cloudy) >= 0 ) {
+						imgUrl = 'assets/img/weather-partly-sunny.svg';
+					} else if ( $.inArray(weather.forecast[i].code, showers) >= 0 ) {
+						imgUrl = 'assets/img/weather-showers.svg';
+					} else if ( $.inArray(weather.forecast[i].code, rainy) >= 0 ) {
+						imgUrl = 'assets/img/weather-rainy.svg';
+					} else if ( $.inArray(weather.forecast[i].code, stormy) >= 0 ) {
+						imgUrl = 'assets/img/weather-stormy.svg';
+					} else if ( $.inArray(weather.forecast[i].code, windy) >= 0 ) {
+						imgUrl = 'assets/img/weather-windy.svg';
+					} else if ( $.inArray(weather.forecast[i].code, snowy) >= 0 ) {
+						imgUrl = 'assets/img/weather-snowy.svg';
+					} else {
+						imgUrl = weather.forecast[i].image;
+					}
+
+					html = "";
+					html +=	'<img src="'+imgUrl+'" alt="weather image" title="Palm Spring Forecast" />'
+							+'<p><span class="high">'+weather.forecast[i].high+'&deg;</span><span class="day">'
+							+weather.forecast[i].day+'</span><span class="low">'+weather.forecast[i].low+'&deg;</span></p>';
+						
+					$("#day"+i).html(html);
+				}
+			}
+
+		},
+		error: function(error) {
+			$("#day1").html('<p>'+error+'</p>');
+		}
+	});
+
+{% endblock %}

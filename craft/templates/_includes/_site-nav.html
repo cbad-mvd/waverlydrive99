@@ -1,0 +1,11 @@
+		<nav class="navMain">
+			<ul class="nav nav-tabs nav-stacked">
+	            <li><a href="/">Home</a></li>
+				{% set typesInOrder = ['tour', 'activities', 'booking', 'contact'] %}
+				{% for type in typesInOrder %}
+				    {% for entry in craft.entries.type(type) %}
+				        <li><a href="{{ type }}">{{ entry.title }}</a></li>
+				    {% endfor %}
+				{% endfor %}
+			</ul>
+		</nav>

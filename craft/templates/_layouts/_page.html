@@ -1,0 +1,72 @@
+{% extends "_layouts/_default" %}
+
+{% block head %}
+{% endblock %}
+
+
+{% block body %}
+    
+<body>
+
+	<div id="wrapper">
+		<header id="top-header">
+			{% block header %}
+			{% endblock %}
+		</header>
+
+		<main role="main">
+			{% block main %}
+			{% endblock %}
+		</main>
+	</div>
+
+	<div id="footer-wrapper">
+		<footer class="footer">
+			{% block footer %}
+			{% endblock %}
+			<p> &copy; {{ 'now'|date('Y') }} Waverly99.com. All rights reserved. </p>
+		</footer>
+	</div>
+
+	{% include '_includes/_global-scripts.js' %}
+	
+	<script type="text/javascript">
+		
+		$(document).ready( function(){
+
+		    $('.menu').click(function(e){
+		      $('.drawer').toggleClass('active');
+		      e.preventDefault();
+		    });
+
+			/**** debug js ****/
+		    $('a.debug').click(function(e){
+		    	var t = $(this).text();
+
+		    	// if ( t == '???' ) {
+		    		alert($(window).width()+' - '+$(document).width()+' - '+$('body').width());
+		    	// }
+		    	e.preventDefault();
+		    });
+
+				$('.navMain li').removeAttr('id');
+				$('#footer li').removeAttr('id');
+
+				page = $.url('1');
+				if ( !page ) {
+					page = '"/"';
+				}
+
+				$( ".navMain li a[href="+page+"]" ).parent().attr('id', 'currentNavMain');
+				$( "#footer li a[href="+page+"]" ).parent().attr('id', 'currentFooter');
+
+			{% block js %}
+				{# add local js script here #}
+			{% endblock %}
+		});
+	</script>
+
+
+</body>
+
+{% endblock %}

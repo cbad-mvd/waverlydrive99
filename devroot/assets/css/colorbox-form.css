@@ -1,0 +1,113 @@
+/*
+ * form specific changes/additions for colorbox
+ */
+#cboxLoadedContent {
+  border: 1px solid #aaa;
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em; }
+
+#colorbox .support-form {
+  margin-bottom: 20px; }
+
+#colorbox .support-form input, #colorbox .support-form textarea, #colorbox .support-form select {
+  border: 1px solid #d0d0d0;
+  margin-top: 2px;
+  float: left; }
+
+#colorbox .support-form input:hover, #colorbox .support-form input:focus,
+#colorbox .support-form textarea:hover, #colorbox .support-form textarea:focus {
+  border: 1px solid #a0a0a0;
+  background: #fbf9cd; }
+
+#colorbox .support-form textarea {
+  margin-bottom: 15px; }
+
+#colorbox .support-form input[type=radio] {
+  margin-top: 4px; }
+
+#colorbox .support-form input.serial {
+  margin-right: 5px; }
+
+#colorbox .support-form input.button {
+  border: none;
+  width: 178px;
+  height: 33px;
+  background: url("/assets/css/img/form-btn.png") no-repeat top left;
+  padding: 0 0 8px;
+  margin-top: 10px;
+  color: #f0f0f0; }
+
+#colorbox .support-form input.button:hover {
+  color: #ffffff;
+  background-position: 0px -33px; }
+
+#colorbox .support-form label {
+  display: block;
+  width: 300px;
+  float: left;
+  margin: 2px 8px 5px 4px;
+  text-align: right;
+  clear: left; }
+
+#colorbox .support-form label {
+  clear: none;
+  text-align: left; }
+
+#colorbox .support-form label {
+  marginx: 10px 8px 0 4px; }
+
+#colorbox .support-form input[type=submit] {
+  clear: both; }
+
+#colorbox .support-form input[type=radio] {
+  clear: left;
+  margin-left: 25px; }
+
+#colorbox .support-form label.inline {
+  clear: none;
+  display: inline;
+  text-align: left;
+  width: auto;
+  margin-right: 20px; }
+
+#colorbox .support-form label.errmsg {
+  text-align: left;
+  color: #f00;
+  width: auto;
+  margin-left: 120px; }
+
+#colorbox .support-form label.errmsg {
+  margin-left: 0; }
+
+#colorbox .support-form fieldset {
+  margin-top: 10px;
+  padding: 10px 20px 0px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: none;
+  -o-border-radius: none;
+  -moz-border-radius: none;
+  -webkit-border-radius: none;
+  box-shadow: none;
+  -o-box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none; }
+
+#colorbox .support-form fieldset {
+  font-family: MyriadProSemiBold, Verdana, Arial, sans-serif; }
+
+#colorbox .support-form fieldset strong {
+  font-family: MyriadProBold, Verdana, Arial, sans-serif;
+  font-weight: bold; }
+
+#colorbox .support-form fieldset legend {
+  font-size: 1.8em; }
+
+#colorbox .support-form fieldset p {
+  margin-bottom: 10px; }
+
+/*# sourceMappingURL=colorbox-form.css.map */

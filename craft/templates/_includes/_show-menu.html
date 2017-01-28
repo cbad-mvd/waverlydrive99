@@ -1,0 +1,11 @@
+ 		<ul>
+            <li id="currentFooter"><a href="/">Home</a></li>
+            
+			{% set typesInOrder = ['tour', 'activities', 'photos', 'rates', 'map', 'contact'] %}
+			{% for type in typesInOrder %}
+			    {% for entry in craft.entries.type(type) %}
+			        <li><a href="{{ type }}">{{ entry.title }}</a></li>
+			    {% endfor %}
+			{% endfor %}
+		</ul>
+

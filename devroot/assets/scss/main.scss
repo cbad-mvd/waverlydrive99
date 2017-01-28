@@ -1,0 +1,713 @@
+@import 'mixins';
+
+//
+// global color variables
+//
+
+$color-main: #333;
+$color-headline: #000;
+
+$color-footer-bg: #333;
+$color-footer-text: #ddd;
+
+$color-navmain: #333;
+$color-navmain-btn: #ccc;
+$color-navmain-btn-active: #fec965;
+
+$color-main-bg: #fff;
+$color-link: #1e90de;
+$color-visited: #1e90de;
+
+//
+// global font variables
+//
+
+$bodytext-font: 'roboto','brandon-grotesque',sans-serif;
+$bodytext-font-size: 1em;
+$bodytext-font-normal: 	calc-ems(16, 16);
+$bodytext-font-small: calc-ems(12, 16);
+$bodytext-font-large: calc-ems(24, 16);
+$bodytext-line-height: 1.75;
+
+$headline-font: 'roboto','brandon-grotesque',sans-serif;
+
+$headline-size-h1: 2.1em;
+$headline-size-h2: calc-ems(32, 16);
+$headline-size-h3: calc-ems(24, 16);
+
+$caption-size: calc-ems(12, 16);
+
+$global-nav-size: calc-ems(14, 16);		// 20px / 16px
+$local-nav-size: calc-ems(18, 16);		// 20px / 16px
+
+$product-title-size: calc-ems(80, 16);
+
+
+//
+// responsive breakpoings
+//
+$page-width: 120;
+$page-content-width: 800;
+$side-width: 40;
+
+$page-width-phone: 1024;
+$content-width-phone: 1024;
+
+
+//
+//	element rules
+//
+html {
+	font-size: 16px;
+
+	@include breakpoint(test) {
+		font-size: 14px;
+	}
+}
+
+body {
+	background: $color-main-bg;
+	color: $color-main;
+	font-family: $bodytext-font;
+	font-size: $bodytext-font-size;
+	line-height: $bodytext-line-height;
+}
+
+a {
+	color: $color-link;
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+	color: $color-headline;
+	font-family: $headline-font;
+	line-height: 1; 
+	margin: 15px 0;
+	text-transform: uppercase;
+}
+
+h1 {
+	font-family: $headline-font;
+	font-size: $headline-size-h1;
+}
+
+h2 {
+	font-size: $headline-size-h2;
+	font-weight: 300;
+	letter-spacing: 0.25em;
+}
+
+h3 {
+	font-size: $headline-size-h3;
+}
+
+h1 {
+	color: $color-main;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+p, li {
+	font-size: $bodytext-font-normal;
+	font-weight: 300;
+	color: $color-main;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	margin-bottom: 10px;
+}
+
+blockquote {
+	margin-top: 10px;
+	height: 100%;
+	padding: 5px;
+	border-radius: 10px;
+	font-size: $bodytext-font-small;
+}
+
+blockquote p.dropcap:first-child:first-letter { 
+	float: left; 
+	color: #706B08;
+	font-size: 75px; 
+	font-size: 4em;
+	line-height: 0.5em; 
+	padding-top: 4px; 
+	padding-right: 8px; 
+	padding-left: 3px; 
+	font-family-xxx: Georgia;
+	font-family: $bodytext-font;
+}
+
+blockquote p.credit {
+	margin: 13px 0 0 0;
+	padding: 0 0 10px 0;
+	font-size: .75em;
+}
+
+main {
+	width: 100%;
+	background-color: #fff;
+}
+
+
+//
+// id styles
+//
+#top-header {
+
+	@include breakpoint(phone) {
+	}
+}
+
+#top-header img {
+
+	@include breakpoint(phone) {
+	}
+}
+
+
+#wrapper {
+	margin:	0 auto;
+	width: 94%;
+
+	@include breakpoint(phone) {
+		width: 100%;
+	}
+}
+
+#footer-wrapper {
+	width: 100%;
+	background: $color-footer-bg;
+	margin-top: 50px;
+}
+
+//
+// class styles
+//
+.clear { clear : both }
+
+.footer {
+	margin:	0 auto;
+	width: 94%;
+	min-height: 100px;
+
+	@include breakpoint(phone) {
+		width: 100%;
+	}
+}
+
+.footer-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	margin: 40px 10px;
+	padding-top: 25px;
+}
+
+.footer-body {
+	width: 30%;
+}
+
+.footer-menu {
+	width: 20%;
+}
+
+#footer-weather {
+	width: 60%;
+}
+
+#footer-weather h3 {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0;
+}
+
+#footer-weather h3 span#weather-update {
+	font-weight: 100;
+	letter-spacing: 0.025em;
+	margin-right: 15px;
+}
+
+#footer-weather p {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: baseline;
+	color: $color-navmain-btn-active;
+}
+
+#footer-weather h3 span#weather-update span {
+	color: $color-navmain-btn-active;
+	margin-right: 0;
+	font-size: 1.5em;
+	font-weight: 400;
+}
+
+#footer-weather p span.day {
+	font-weight: 500;
+	font-size: 2em;
+	line-height: 1em;
+	color: $color-footer-text;
+}
+
+#footer-weather ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+
+	width: 100%;
+}
+
+#footer-weather li {
+	width: 100%;
+	margin: 15px;
+}
+
+#footer-weather li img {
+	width: 100%;
+}
+
+#footer-weather li:first-child {
+	margin-left: 0;
+}
+
+.footer h3, .footer h4, .footer p  {
+	color: $color-footer-text;
+	font-weight: 100;
+	font-size: $bodytext-font-small;
+}
+
+.footer h3 {
+	font-weight: 500;
+	letter-spacing: 0.25em;
+}
+
+.footer h4 {
+	margin-top: 0;
+	font-weight: 400;
+	text-align: center;
+}
+
+div.debug {
+  position: absolute;
+  z-index: 3;
+  border:1px solid white;
+  text-decoration: none;
+  top: 10px;
+  right: 7.6em;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  padding: 0.4em 0.7em;
+  border-radius: 4px;
+}
+
+div.debug a {
+	color: #fff;
+}
+
+.callout {
+}
+
+.hdr-wrapper {
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	width: 100%;
+	margin-left: 10px;
+}
+
+.siteLogo {
+	backgroundx: SteelBlue;
+	height: auto;
+	padding: 10px 10px 0 0;
+	width: 40%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.siteLogo img {
+	width: 300px;
+}
+
+.navMain {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	height: auto;
+	width: 60%;
+
+	@include breakpoint(phone) {
+		display: none;
+	}
+
+}
+
+.navMain ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	list-style: none;
+}
+
+.navMain li {
+	background: $color-navmain-btn;
+	border-radius: 3px;
+	font-size: $global-nav-size;
+	margin: 0 0 0 15px;
+	padding: 0px 12px;
+}
+
+.navMain li a {
+	color: $color-navmain;
+	text-decoration: none;
+}
+
+#currentNavMain a, #currentNavMain a:visited, #currentNavMain a:active,
+#currentNavMain, #currentNavMain:link, #currentNavMain a:visited, #currentNavMain a:active {
+	font-weight: 500;
+	background: $color-navmain-btn-active;
+}
+
+.navMain li a:hover{
+}
+
+.hero {
+	margin: 10px 0;
+}
+
+.hero img {
+	border-top: 1px solid #bbb;
+	border-bottom: 1px solid #bbb;
+	padding: 10px 0;
+}
+
+.hero img, .hero hr {
+	margin: 0 10px;
+	width: 100%;
+}
+
+.content {
+	margin: 0 10px;
+	overflow: hidden;
+}
+
+.content em {
+	background: lightyellow;
+}
+
+figure {
+	width: 40%;
+}
+
+.tour-wrapper {
+	width: 80%;
+	margin: 20px auto;
+}
+
+h2.tour-title {
+	margin: 20px 0;
+	text-align: center;
+}
+
+h3.tour-image {
+	margin-bottom: 5px;
+}
+
+.tour-stop {
+	background: rgba(0, 0, 0, 0.4);
+	width: 100%;
+}
+
+.tour-stop h3, .tour-stop p {
+	color: #eee;
+}
+
+.tour-stop p {
+	line-height: 1.5;
+}
+
+.attraction {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	margin: 30px 10px;
+	widthx: 990px;
+	height: 201px;
+}
+
+h3.attraction-group:first-child {
+	margin-top: 25px;
+}
+
+h3.attraction-group {
+	margin-top: 4em;
+}
+
+.attraction .pic {
+	flex: 0 0 auto;
+	width: 235px;
+}
+
+.attraction .info {
+	width: 520px;
+	padding: 0;
+	background: #eee;
+
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	border-top: 5px solid #ccc;
+	border-bottom: 5px solid #ddd;
+
+	font-size: .875em;
+	font-weight: 300;
+}
+
+.attraction .map {
+	flex: 0 0 auto;
+	width: 235px;
+}
+
+.attraction .info-content {
+	margin: 5px 10px;;
+}
+
+.attraction .info-content h4 {
+	font-weight: 500;
+	margin-bottom: 7px;
+}
+
+.attraction .info-contact {
+	margin: 5px 10px;
+}
+
+.attraction .info-contact .info-url {
+	float: right; 
+}
+
+.attraction .info-contact .info-phone {
+	float: left;
+	margin-bottom: 0;
+}
+
+
+.calendar-wrapper {
+	margin: 0 auto;
+	width: 90%;	
+	padding: 10px;
+	box-sizing: border;
+}
+
+.calendar-wrapper h2 {
+	margin-bottom: 25px;
+}
+
+.calendar {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.month {
+	width: 22.5%;
+	margin-bottom: 20px;
+}
+
+.month.booked {
+	background: lightyellow;
+}
+
+.month h4 {
+	text-align: left;
+	margin: 0 0 5px 0;
+	color: tomato;
+	padding: 0 2px;
+}
+
+.day-wrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;	
+}
+
+p.day {
+	font-size: .7em;
+	padding: 0 2px;
+	width: 14.285714%;
+	text-align: center;
+	margin: 0;
+}
+
+p.day.dimmed {
+	color: #ccc;
+}
+
+
+/*
+ * contact form
+ */
+.contact-section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	width: 100%;
+}
+
+.contact-form {
+	width: 60%;
+}
+
+.contact-static {
+	width: 33.5%;
+	padding-left: 7.5%;
+	border-left: 1px dashed #ccc;
+	backgroundx: lightyellow;
+}
+
+.contact-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.contact-field.name, .contact-field.email {
+	width: 45%;
+}
+
+.contact-field.subject, .contact-field.message {
+	width: 95%;
+}
+
+.contact-field.submit {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 2.5%;
+}
+
+.styled-form input[type=text], .styled-form input[type=password], .styled-form textarea {
+ 	background: #e1e1db;
+ 	padding: 12px 14px;
+ 	border-radius: 5px;
+ 	border: none;
+
+ 	width: 100%;
+ }
+
+.styled-form h6, 
+.contact-static h6 {
+	margin: 20px 0 0;
+}
+
+.styled-form label, 
+.contact-static label {
+	font-size: 0.75em;
+	font-weight: 500;
+}
+
+.contact-static p {
+	font-size: 0.75em;
+	margin-bottom: 0;
+}
+.styled-form label,
+.contact-static label{
+	color: tomato;
+}
+
+.styled-form .required {
+	color: black;
+}
+
+
+.styled-form input[type=submit] {
+	background: tomato;
+	border: none;
+	color: white;
+	font-size: 0.8em;
+	border-radius: 5px;
+	width: 100px;
+	height: 30px;
+}
+
+/*
+ * mobile slide down menu
+ */
+nav.mobile ul {
+	background: tomato;
+	display: block;
+	list-style: none;
+
+	@include breakpoint(phone) {
+		display: block;
+	}
+}
+
+nav.mobile ul li {
+	margin: 0;
+}
+
+nav.mobile ul li a {
+	color: white;
+	display: block;
+	padding: .1em;
+	text-decoration: none;
+}
+
+nav.mobile ul li a:hover {
+	background: rgba(0,0,0,0.3);
+}
+
+.drawer {
+	transform: translate3d(0, -218px, 0);
+	transition:transform 0.25s linear;
+
+	@include breakpoint(phone) {
+		transform: translate3d(0, -129px, 0);
+	}
+}
+
+.drawer.active {
+	transform: translate3d(0, 0, 0);
+
+	@include breakpoint(phone) {
+		transform: translate3d(0, 90px, 0);
+	}
+}
+
+/* Fallbacks for older browsers */
+
+.no-csstransforms .top {
+  position: static;
+}
+
+.no-csstransforms .drawer nav {
+  display: none;
+}
+
+.no-csstransforms .drawer.active nav {
+  display: block;
+}

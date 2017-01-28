@@ -1,0 +1,80 @@
+{% extends "_layouts/_base" %}
+
+{% block head %}
+	<style type="text/css">
+	</style>
+{% endblock %}
+
+{% block header %}
+		<div id="bread">
+			<p></p>
+		</div>
+
+		{% for img in entry.pageImage %}
+			<div class="pg-image"> <a href="#">
+
+				<picture>
+				   <source	media="(min-width: 801px)"
+				    		srcset="./assets/photos/mtn-view.2x.jpg 2x,
+					        		./assets/photos/mtn-view.1x.jpg 1x"
+				    		sizes="100%" />
+				   <source	media="(min-width: 200px)"
+				    		srcset="./assets/photos/mtn-view.cropped.2x.jpg 2x,
+					        		./assets/photos/mtn-view.cropped.1x.jpg 1x"
+				    		sizes="100%" />
+				   <img src="./assets/photos/mtn-view.1x.jpg" title="{{ img.title }}" alt="{{ img.title }}" />
+				</picture>				
+<!--				
+				<img title="{{ img.title }}" alt="{{ img.title }}" src="{{ img.getUrl('pgImgCrop') }}"  />
+-->
+			</a></div>
+		{% endfor %}
+		
+		<div id="slogan">
+			<h2>{{ entry.pageTitle }}</h2>
+			<p>{{ entry.pageDesc }}</p>
+		</div>
+{% endblock %}
+
+
+{% block main %}
+		<section id="content">
+			<aside id="side-panel">
+			{% for img in entry.contentImages %}
+				<div class="img-shadow">
+					<img title="{{ img.title }}" alt="{{ img.title }}" src="{{ img.url }}" />
+					<p class="caption">{{ img.title }}</p>
+				</div>
+			{% endfor %}
+			</aside>
+			<h3 class="highlight">{{ entry.contentTitle }}</h3>
+			{{ entry.contentBody }}
+		</section>
+
+		<aside id="extras">
+			<div id="navMain">
+				{% include "_includes/_show-menu" %}
+			</div>
+			<div class='callout'>
+				{% for entry in craft.entries.section('quotes').order('RAND()').limit(1) %}
+				<blockquote>
+					<p class="dropcap">
+						{{ entry.text }}
+					</p>
+					<p class="credit">
+						{{ entry.cite }}
+					</p>
+				</blockquote>
+				{% endfor %}
+
+			</div>
+		</aside>
+
+		<div class="clear"></div>
+{% endblock %}
+
+{% block footer %}
+
+		{% include "_includes/_show-menu" %}
+
+{% endblock %}

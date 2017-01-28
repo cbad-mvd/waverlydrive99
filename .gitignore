@@ -1,0 +1,13 @@
+.DS_STORE
+holy.html
+readme*
+test.sh
+stdout*
+*.log
+*.map
+craft/app/
+craft/app-old/
+craft/plugins/
+craft/storage/
+craft/config/db.php
+stickers/

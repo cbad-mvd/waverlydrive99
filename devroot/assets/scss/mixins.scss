@@ -1,0 +1,112 @@
+@mixin rounded($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin shadow($x, $y, $blur, $color) {
+	-webkit-box-shadow: $x $y $blur $color;
+	-moz-box-shadow: $x $y $blur $color;
+	box-shadow: $x $y $blur $color;
+}
+
+@mixin shadow-inset($x, $y, $blur, $color) {
+	-webkit-box-shadow: inset $x $y $blur $color;
+	-moz-box-shadow: inset $x $y $blur $color;
+	box-shadow: inset $x $y $blur $color;
+}
+
+@mixin transition($property) {
+	-webkit-transition: $property .2s ease;
+	-moz-transition: $property .2s ease;
+	-o-transition: $property .2s ease;
+	transition: $property .2s ease;
+}
+
+@mixin box-sizing {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@mixin linear-gradient($from, $to) {
+	/* Fallback for sad browsers */
+	background-color: $to;
+	/* Mozilla Firefox */
+	background-image: -moz-linear-gradient($from, $to);
+	/* Opera */
+	background-image: -o-linear-gradient($from, $to);
+	/* WebKit (Chrome 11+) */
+	background-image: -webkit-gradient(linear, 
+	left top, left bottom, color-stop(0, $from), 
+	color-stop(1, $to));
+	/* WebKit (Safari 5.1+, Chrome 10+) */
+	background-image: -webkit-linear-gradient($from, $to);
+	/* IE10 */
+	background-image: -ms-linear-gradient($from, $to);
+	/* W3C */
+	background-image: linear-gradient($from, $to);
+}
+
+@mixin round-button($from, $to) {
+	padding: 5px 10px;
+	@include rounded(6px);
+	@include linear-gradient($from, $to);
+}
+
+
+/// calculate the target percent
+/// @access public
+/// @param {Number} $target - size of target container
+/// @param {Number} $container - size of parent container
+/// $return {Percent} size of target as a percent of container
+@function calc-percent($target, $container) {
+	@return ($target / $container) * 100%;
+}
+
+/// calculate the ems for point size
+/// @access public
+/// @param {Number} $target - size of target container
+/// @param {Number} $container - size of parent container
+/// $return {Percent} size of target as a percent of container
+@function calc-ems($target, $base) {
+	@return ($target / $base)+em;
+}
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+	@return mix($color, white, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+	@return mix($color, black, $percentage);
+}
+
+/// setup media query for a specified breakpoint
+/// @access public
+/// @param {Point} $point - breakpoint value
+/// @return {Media} @media statement
+@mixin breakpoint($point) {
+	@if $point == desktop {
+		@media (max-width: 1600px) { @content; }
+	}
+	@else if $point == tablet {
+		@media (max-width: 1200px) { @content; }
+	}
+	@else if $point == test {
+		@media (max-width: 1024px) { @content; }
+	}
+	@else if $point == phone {
+		@media (max-width: 800px) { @content; }
+	}
+}
+

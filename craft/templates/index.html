@@ -1,0 +1,82 @@
+{% extends "_layouts/_page" %}
+
+{% block head %}
+	<!-- Base MasterSlider style sheet -->
+	<link rel="stylesheet" href="/assets/css/masterslider.css" />
+	<link rel="stylesheet" href="/assets/css/ms-light6.css" />
+   	<link rel='stylesheet' href='/assets/css/ms-gallery1.css' type='text/css'>
+
+
+	<script type="text/javascript" src="assets/js/jquery.colorbox-min.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery.simpleWeather.min.js"></script>
+	<script type="text/javascript" src="/assets/js/masterslider.min.js"></script>
+
+	<style type="text/css">
+	</style>
+{% endblock %}
+
+{% block header %}
+	<section class="hdr-wrapper">
+		{% include "_includes/_site-logo" %}
+		{% include "_includes/_site-nav" %}
+		<h4>holy smokes!</h4>
+	</section>
+{% endblock %}
+
+{% block main %}
+
+	{% include "_includes/_hero-image" %}
+
+	<div class="content">
+
+		{% switch entry.type %}
+		
+			{% case "homePage" %}
+				{% include "_includes/_homepage" %}
+					
+			{% case "tour" %}
+				{% include "_includes/_tour" %}
+			
+			{% case "activities" %}
+				{% include "_includes/_attractions" %}
+		
+			{% case "booking" %}
+				{% include "_includes/_homepage" %}
+		
+			{% case "contact" %}
+				{% include "_includes/_contact" %}
+		
+			{% default %}
+				{% include "_includes/_homepage" %}
+		
+		{% endswitch %}
+	</div>
+{% endblock %}
+
+{% block footer %}
+	<section class="footer-wrapper">
+		{%	include '_includes/_footer'%}
+	</section>
+{% endblock %}
+
+{% block js %}
+
+	{% include '_includes/_weather.js' %}
+
+		var slider = new MasterSlider();
+		slider.setup('masterslider' , {
+			autoplay: true,
+			width:1280,
+			height:877,
+			space:0,
+			fillMode:'fill',
+			speed:17,
+			preload:'1',
+			view:'mask',
+			loop:true
+		});
+		
+		slider.control('arrows', {autohide: false});	
+		slider.control('bullets', {margin: -25, align: "bottom", autohide: false});
+
+{% endblock %}
