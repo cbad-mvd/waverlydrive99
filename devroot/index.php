@@ -21,6 +21,7 @@ switch ($_SERVER['SERVER_NAME'])
         define('CRAFT_ENVIRONMENT', 'local');
         break;
 }
+define('CRAFT_ENVIRONMENT', 'live');
 
 // Path to your craft/ folder
 $craftPath = '../craft';
