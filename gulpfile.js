@@ -27,6 +27,12 @@ gulp.task('images', function(){
 				.pipe(gulp.dest(dstPath + 'assets/img'));
 });
 
+gulp.task('photos', function(){
+	return gulp.src(srcPath + 'assets/photos/**/*.+(png|jpg|jpeg|gif|svg)')
+				.pipe(cache(imagemin()))
+				.pipe(gulp.dest(dstPath + 'assets/photos'));
+});
+
 gulp.task('css-images', function(){
 	return gulp.src(srcPath + 'assets/css/img/**/*.+(png|jpg|jpeg|gif|svg)')
 				.pipe(cache(imagemin()))
@@ -47,7 +53,7 @@ gulp.task('clean:dest', function() {
 
 gulp.task('build', function (callback) {
 	runSequence('clean:dest', 
-				['sass', 'images', 'css-images', 'useref'],
+				['sass', 'photos', 'images', 'css-images', 'useref'],
 				callback
 		)
 })
