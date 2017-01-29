@@ -8,6 +8,7 @@ switch ($_SERVER['SERVER_NAME'])
     // that identifies this environment that we can 
     // use in our multi-environment config
 
+    case 'www.waverlydrive99.com':
     case 'waverlydrive99.com' :
         define('CRAFT_ENVIRONMENT', 'live');
         break;
