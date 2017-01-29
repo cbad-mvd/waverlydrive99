@@ -271,7 +271,11 @@ div.debug a {
   background: lightyellow; }
 
 figure {
+  padding: 20px;
   width: 40%; }
+
+figure img {
+  border-radius: 3px; }
 
 .tour-wrapper {
   width: 80%;

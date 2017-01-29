@@ -415,7 +415,12 @@ div.debug a {
 }
 
 figure {
+	padding: 20px;
 	width: 40%;
+}
+
+figure img {
+	border-radius: 3px;
 }
 
 .tour-wrapper {
