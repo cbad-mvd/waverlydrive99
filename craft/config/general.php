@@ -41,6 +41,7 @@ $customConfig = array(
         'env' => CRAFT_ENVIRONMENT,
         'wdUrl' => SITE_URL,
         'wdPath' => BASEPATH,
+        'wdServerName' => $_SERVER['SERVER_NAME'], 
 
         // Triggers
         // If you wish to access the control panel via a different URL
