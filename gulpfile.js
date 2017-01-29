@@ -40,7 +40,7 @@ gulp.task('css-images', function(){
 });
 
 gulp.task('useref', function(){
-	return gulp.src(srcPath + '*.html')
+	return gulp.src(srcPath + './**/*.+(html|php|txt)')
 				.pipe(useref())
 				.pipe(gulpIf('*.js', uglify()))
 				.pipe(gulpIf('*.css', cssnano()))

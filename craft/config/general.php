@@ -39,6 +39,8 @@ $customConfig = array(
         // This setting assumes we set the environment name in our index.php file
         // {% if craft.config.env == 'live' %} ... {% endif %}
         'env' => CRAFT_ENVIRONMENT,
+        'wdUrl' => SITE_URL,
+        'wdPath' => BASEPATH,
 
         // Triggers
         // If you wish to access the control panel via a different URL
