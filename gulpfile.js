@@ -39,11 +39,17 @@ gulp.task('css-images', function(){
 				.pipe(gulp.dest(dstPath + 'assets/css/img'));
 });
 
+gulp.task('ms-images', function(){
+	return gulp.src(srcPath + 'assets/css/ms-img/**/*.+(png|jpg|jpeg|gif|svg)')
+				.pipe(cache(imagemin()))
+				.pipe(gulp.dest(dstPath + 'assets/css/ms-img'));
+});
+
 gulp.task('useref', function(){
 	return gulp.src(srcPath + './**/*.+(html|php|txt)')
 				.pipe(useref())
 				.pipe(gulpIf('*.js', uglify()))
-				//.pipe(gulpIf('*.css'), cssnano())
+				.pipe(gulpIf('*.css', cssnano()))
 				.pipe(gulp.dest(dstPath));
 })
 
@@ -53,7 +59,7 @@ gulp.task('clean:dest', function() {
 
 gulp.task('build', function (callback) {
 	runSequence('clean:dest', 
-				['sass', 'photos', 'images', 'css-images', 'useref'],
+				['sass', 'photos', 'images', 'css-images', 'ms-images', 'useref'],
 				callback
 		)
 })

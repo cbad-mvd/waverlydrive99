@@ -63,13 +63,11 @@
 
 		<h6><label>TELEPHONE</label></h6>
 		<p>{{ companyInfo.contactPhone }}</p>
+		{% if companyInfo.contactPhone2 %}<p>{{ companyInfo.contactPhone2 }}</p>{% endif %}
 
 		<h6><label>ADDRESS</label></h6>
-		<p>companyInfo.contactName</p>
-		<p>companyInfo.contactAddr1</p>
-		{% if companyInfo.contactAddr2 %}<p>companyInfo.contactAddr2</p>{% endif %}
+		<p>{{ companyInfo.contactAddr1 }}</p>
+		{% if companyInfo.contactAddr2 %}<p>{{ companyInfo.contactAddr2 }}</p>{% endif %}
 		<p>{{ companyInfo.contactCity }}, {{ companyInfo.contactState }} &nbsp; {{ companyInfo.contactZip }}</p>
-		<p>N21 3NA</p>
-		<p>England</p>	
 	</div>
 </div>
