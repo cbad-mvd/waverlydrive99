@@ -21,21 +21,21 @@
 			for(var i=0;i<weather.forecast.length;i++) {
 				if ( i < 4 ) {
 					if ( $.inArray(weather.forecast[i].code, sunny) >= 0 ) {
-						imgUrl = 'assets/img/weather-sunny.svg';
+						imgUrl = '/assets/img/weather-sunny.svg';
 					} else if ( $.inArray(weather.forecast[i].code, pcloudy) >= 0 ) {
-						imgUrl = 'assets/img/weather-partly-sunny.svg';
+						imgUrl = '/assets/img/weather-partly-sunny.svg';
 					} else if ( $.inArray(weather.forecast[i].code, cloudy) >= 0 ) {
-						imgUrl = 'assets/img/weather-partly-sunny.svg';
+						imgUrl = '/assets/img/weather-partly-sunny.svg';
 					} else if ( $.inArray(weather.forecast[i].code, showers) >= 0 ) {
-						imgUrl = 'assets/img/weather-showers.svg';
+						imgUrl = '/assets/img/weather-showers.svg';
 					} else if ( $.inArray(weather.forecast[i].code, rainy) >= 0 ) {
-						imgUrl = 'assets/img/weather-rainy.svg';
+						imgUrl = '/assets/img/weather-rainy.svg';
 					} else if ( $.inArray(weather.forecast[i].code, stormy) >= 0 ) {
-						imgUrl = 'assets/img/weather-stormy.svg';
+						imgUrl = '/assets/img/weather-stormy.svg';
 					} else if ( $.inArray(weather.forecast[i].code, windy) >= 0 ) {
-						imgUrl = 'assets/img/weather-windy.svg';
+						imgUrl = '/assets/img/weather-windy.svg';
 					} else if ( $.inArray(weather.forecast[i].code, snowy) >= 0 ) {
-						imgUrl = 'assets/img/weather-snowy.svg';
+						imgUrl = '/assets/img/weather-snowy.svg';
 					} else {
 						imgUrl = weather.forecast[i].image;
 					}

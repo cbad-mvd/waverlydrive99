@@ -15,14 +15,14 @@
 	{% if craft.config.env == 'live' %}
 
 	{# concatenated scripts for live site #}
-	<script src="./assets/js/scripts.js"></script>
+	<script src="/assets/js/scripts.js"></script>
 
 	{% else %}
 
 	{# individual scripts for all non-live sites #}
-	<script src="./assets/js/url.min.js"></script>
-	<script type="text/javascript" src="./assets/js/jquery.colorbox-min.js"></script>
-	<script type="text/javascript" src="./assets/js/jquery.simpleWeather.min.js"></script>
-	<script type="text/javascript" src="./assets/js/masterslider.min.js"></script>
+	<script src="/assets/js/url.min.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery.colorbox-min.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery.simpleWeather.min.js"></script>
+	<script type="text/javascript" src="/assets/js/masterslider.min.js"></script>
 
 	{% endif %}

@@ -7,7 +7,6 @@ stdout*
 *.map
 craft/app/
 craft/app-old/
-craft/plugins/
 craft/storage/
 craft/config/db.php
 stickers/
