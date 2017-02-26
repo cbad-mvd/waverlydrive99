@@ -86,18 +86,19 @@
 
 	<script type="text/javascript">
 
-		$('#navMain li').removeAttr('id');
-		$('#footer li').removeAttr('id');
+    /*
+     * set active nav state
+     */
+	$('.navMain li').removeAttr('id');
 
-		page = $.url('1');
-		if ( !page ) {
-			page = '"/"';
-		}
+	page = $.url('1');
+	if ( !page ) {
+		page = "home";
+	}
 
-		$( "#navMain li a[href="+page+"]" ).parent().attr('id', 'currentNavMain');
-		$( "#footer li a[href="+page+"]" ).parent().attr('id', 'currentFooter');
+	$( ".navMain li a[data-navID="+page+"]" ).parent().attr('id', 'currentNavMain');
 
-		$( "#bread p").text($( "#navMain li a[href="+page+"]" ).text());
+	$( "#bread p").text($( "#navMain li a[href="+page+"]" ).text());
 
     $('.menu').click(function(e){
       $('.drawer').toggleClass('active');

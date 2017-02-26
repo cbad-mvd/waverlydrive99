@@ -52,16 +52,17 @@
 		    	e.preventDefault();
 		    });
 
-				$('.navMain li').removeAttr('id');
-				$('#footer li').removeAttr('id');
+		    /*
+		     * set active nav state
+		     */
+			$('.navMain li').removeAttr('id');
 
-				page = $.url('1');
-				if ( !page ) {
-					page = '"/"';
-				}
+			page = $.url('1');
+			if ( !page ) {
+				page = "home";
+			}
 
-				$( ".navMain li a[href="+page+"]" ).parent().attr('id', 'currentNavMain');
-				$( "#footer li a[href="+page+"]" ).parent().attr('id', 'currentFooter');
+			$( ".navMain li a[data-navID="+page+"]" ).parent().attr('id', 'currentNavMain');
 
 			{% block js %}
 				{# add local js script here #}
