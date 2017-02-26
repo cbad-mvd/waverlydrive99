@@ -396,6 +396,9 @@ p.day.dimmed {
 /*
  * contact form
  */
+#pball {
+  display: none; }
+
 .contact-section {
   display: flex;
   flex-wrap: wrap;

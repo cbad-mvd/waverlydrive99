@@ -574,6 +574,10 @@ p.day.dimmed {
 /*
  * contact form
  */
+#pball {					// honeypot captcha id
+	display: none;
+}
+
 .contact-section {
 	display: flex;
 	flex-wrap: wrap;
