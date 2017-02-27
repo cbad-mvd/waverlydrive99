@@ -25,7 +25,6 @@ $customConfig = array(
         // We can use these variables in the URL and Path settings within
         // the Craft Control Panel.  i.e. siteUrl => {siteUrl}, basePath => {basePath} 
         'environmentVariables' => array(
-            'siteUrl'  => SITE_URL,
             'basePath' => BASEPATH
         ),
 
@@ -65,6 +64,8 @@ $customConfig = array(
     // ------------------------------------------------------------
     'live' => array(
 
+        'siteUrl' => "http://www.waverlydrive99.com/",
+
         // Setting allowAutoUpdates to false will disable the
         // ability to use the one-click update feature.  This might
         // be useful if you are managing a git workflow and want to 
@@ -77,6 +78,8 @@ $customConfig = array(
     // ------------------------------------------------------------
     'dev' => array(
 
+        'siteUrl' => "dev.waverlydrive99.com",
+
         // Give us more useful error messages
         'devMode' => true,
 
@@ -85,6 +88,8 @@ $customConfig = array(
     // Config settings for the LOCAL environment
     // ------------------------------------------------------------
     'local' => array(
+
+        'siteUrl' => "http://waverlydrive99.dev/",
 
         // Give us more useful error messages
         'devMode'   => true,
