@@ -1,0 +1,372 @@
+/* Colors */
+/* Breakpoints */
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0; }
+
+/* Clearfix */
+.clearfix:after, .clearfix:before {
+  content: "";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.clearfix {
+  zoom: 1; }
+
+.hidden {
+  display: none; }
+
+body {
+  font-family: "Lato", "Gill Sans Nova", "Gill Sans", Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+  font-weight: 300; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none; }
+
+.container, [class^="container--"], [class*=" container--"] {
+  margin: 0 6%;
+  padding: 20px; }
+
+.container--nav {
+  padding: 0; }
+
+.container--wide {
+  padding: 0;
+  margin: 0; }
+
+.pbcal {
+  width: 100%;
+  display: flex;
+  background-color: #888;
+  height: 400px; }
+
+.pbcal__col {
+  display: flex;
+  flex-direction: column;
+  width: 13%;
+  background-color: #eee;
+  height: 100%; }
+
+.pbcal__col--times {
+  width: 9%;
+  background-color: #f8f8f8;
+  height: 100%; }
+
+.pbcal__col--times p {
+  width: 98%; }
+
+.pbcal__entry, [class^="pbcal__entry--"], [class*=" pbcal__entry--"] {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  width: 100%;
+  height: 10%;
+  text-align: center; }
+
+.entry-text {
+  width: 100%;
+  line-height: 1.25; }
+
+.pbcal__entry--time {
+  height: 10%;
+  text-align: right; }
+
+.pbcal__entry--skills {
+  background-color: #cbf3f8; }
+
+.pbcal__entry--openplay {
+  background-color: #b6ffb9; }
+
+.pbcal__entry--lessons {
+  background-color: #ffd199; }
+
+.pbcal__entry--cbts {
+  background-color: #fffcb7; }
+
+.pbcal__entry--closed {
+  background-color: #ddd; }
+
+.one-hour {
+  height: 10%; }
+
+.two-hour {
+  height: 20%; }
+
+.three-hour {
+  height: 30%; }
+
+.four-hour {
+  height: 40%; }
+
+.five-hour {
+  height: 50%; }
+
+.six-hour {
+  height: 60%; }
+
+/**
+ * ----------------------------------------
+ * animation slide-in-right
+ * ----------------------------------------
+ */
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0; }
+  100% {
+    transform: translateX(0);
+    opacity: 1; } }
+/**
+ * ----------------------------------------
+ * animation slide-out-right
+ * ----------------------------------------
+ */
+@keyframes slide-out-right {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+    display: block; }
+  100% {
+    transform: translateX(1000px);
+    opacity: 0;
+    display: none; } }
+/**
+ * ----------------------------------------
+ * animation slide-in-left
+ * ----------------------------------------
+ */
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+    display: none; }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    display: block; } }
+/**
+ * ----------------------------------------
+ * animation slide-out-left
+ * ----------------------------------------
+ */
+@keyframes slide-out-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1; }
+  100% {
+    transform: translateX(-1000px);
+    opacity: 0; } }
+.slide-in-right {
+  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+
+.slide-in-left {
+  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+
+.slide-out-right {
+  animation: slide-out-right 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both; }
+
+.slide-out-left {
+  animation: slide-out-left 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both; }
+
+.cal {
+  width: 100%;
+  background-color: #fff; }
+
+.cal__row {
+  width: 100%; }
+
+.cal__col {
+  width: 14.28%;
+  display: inline-block;
+  padding-right: 0.5rem; }
+  @media (max-width: 64rem) {
+    .cal__col {
+      width: 33.33%; } }
+  @media (max-width: 50rem) {
+    .cal__col {
+      width: 50%; } }
+  @media (max-width: 32rem) {
+    .cal__col {
+      width: 100%; } }
+
+.cal__month-header {
+  display: flex;
+  margin-bottom: 10px; }
+
+.cal__month-header-title {
+  width: 65%; }
+
+.cal__month-header-nav {
+  width: 35%;
+  padding-topx: 5px;
+  display: flex;
+  justify-content: space-around; }
+
+.nav-range {
+  width: 70%;
+  border: 1px solid #eee;
+  padding: 4px 12px;
+  background-color: #edf3ea;
+  text-align: center; }
+
+.nav-control, [class^="nav-control-"], [class*="nav-control-"] {
+  padding: 4px 12px; }
+
+.nav-control-prev:hover,
+.nav-control-next:hover {
+  color: crimson;
+  cursor: pointer; }
+
+.nav-control-prev.disabled,
+.nav-control-next.disabled,
+.nav-control-prev.disabled:hover,
+.nav-control-next.disabled:hover {
+  color: #ccc;
+  cursor: default; }
+
+.cal__week {
+  margin-bottom: 2rem; }
+
+.cal__day {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column; }
+
+.cal__dayhdr {
+  border-top: 3px solid #007aaf;
+  text-align: right;
+  margin-bottom: 5px; }
+
+.cal__events {
+  display: flex;
+  flex-direction: column;
+  height: 30rem; }
+
+.cal__event {
+  padding: 5px;
+  background-color: #edf3ea;
+  border-bottom: 8px solid #fff; }
+
+.cal__event h6, .cal__event p {
+  font-size: 0.75rem; }
+
+.x1 {
+  min-height: 10%; }
+
+.x2 {
+  min-height: 20%; }
+
+.x2-5 {
+  min-height: 25%; }
+
+.x3 {
+  min-height: 30%; }
+
+.x3-5 {
+  min-height: 35%; }
+
+.x4 {
+  min-height: 40%; }
+
+.x5 {
+  min-height: 50%; }
+
+.x6 {
+  min-height: 60%; }
+
+.x10 {
+  min-height: 100%; }
+
+.skills {
+  background-color: #fff2f1; }
+
+.lessons {
+  background-color: #e3f7f9; }
+
+.cbts {
+  background-color: #f6f2ff; }
+
+.closed {
+  background-color: #e8e8e8;
+  background-image: none;
+  background-size: 100%;
+  background-position: center bottom;
+  background-repeat: no-repeat; }
+
+/***  home page styles ***/
+.topnav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  font-size: 0.75rem;
+  text-align: center;
+  margin-top: 1.5rem; }
+  @media (max-width: 50rem) {
+    .topnav {
+      font-size: 0.6125rem; } }
+
+.topnav__item {
+  display: inline-block;
+  width: 11%;
+  vertical-align: middle;
+  paddingx: 20px 0; }
+  @media (max-width: 50rem) {
+    .topnav__item {
+      width: 12%; } }
+
+.topnav__item.selected span {
+  padding-bottom: 5px;
+  border-bottom: 2px solid #fb7960; }
+
+.topnav__item--logo {
+  display: inline-block;
+  width: 40%;
+  vertical-align: middle;
+  padding: 0 1.5rem; }
+  @media (max-width: 50rem) {
+    .topnav__item--logo {
+      width: 34%; } }
+
+.hero {
+  width: 100%;
+  height: 300px;
+  background: url(../img/hero-picklebarrel.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-bottom: 2rem; }
+  @media (max-width: 64rem) {
+    .hero {
+      height: 275px; } }
+  @media (max-width: 50rem) {
+    .hero {
+      height: 250px; } }
+  @media (max-width: 32rem) {
+    .hero {
+      height: 225px; } }
+
+.footer {
+  width: 100%;
+  height: 6rem;
+  background-color: #1d1e1f;
+  padding-top: 2rem;
+  text-align: center;
+  color: #eee;
+  font-size: 0.75rem; }
+
+/*# sourceMappingURL=style.css.map */

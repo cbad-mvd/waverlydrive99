@@ -1,0 +1,511 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+
+<title>Calendar | St. Michaels Pickleball</title>
+
+<link rel="stylesheet" href="./css/normalize.css">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+<style type="text/css">
+</style>
+
+</head>
+<body>
+
+<div class="container">
+	<div class="topnav">
+		<div class="topnav__item"><span>HOME</span></div>
+		<div class="topnav__item"><span>ABOUT</span></div>
+		<div class="topnav__item selected"><span>SCHEDULE</span></div>
+		<div class="topnav__item--logo">
+			<img src="./img/smpickleball-logo.svg" />
+		</div>
+		<div class="topnav__item"><span>FEES</span></div>
+		<div class="topnav__item"><span>MEMBERSHIP</span></div>
+		<div class="topnav__item"><span>CONTACT</span></div>
+	</div>
+</div>
+
+<div class="container--wide">
+	<div class="hero"></div>
+</div>
+
+<div class="container" style="background-color: #fff; min-height: 400px;">
+	<div id="js-calendar" class="cal">
+	</div>
+</div>
+
+<div class="container" style="background-color: #fff; min-height: 400px; display: none;">
+	<div class="cal cal__body">
+		<div class="cal__row">
+			<h2 class="cal__month-header-title">March 2017</h2>
+		</div>
+		<div class="cal__row">
+			<div class="week__header">
+				<h4 class="cal__col">Sunday</h4>
+				<h4 class="cal__col">Monday</h4>
+				<h4 class="cal__col">Tuesday</h4>
+				<h4 class="cal__col">Wednesday</h4>
+				<h4 class="cal__col">Thursday</h4>
+				<h4 class="cal__col">Friday</h4>
+				<h4 class="cal__col">Saturday</h4>
+			</div>
+			<div class="cal__week">
+				<div class="cal__col">
+					<div class="cal__day">
+						<h4 class="cal__dayhdr">26</h4>
+						<div class="cal__events">
+							<div class="cal__event x4 closed">
+								<h6>8:00am - 12:00pm</h6>
+								<p>Closed for <br />Church Services</p>
+							</div>
+							<div class="cal__event x6">
+								<h6>12:00pm - Dusk</h6>
+								<p>Open Play<br />Fun Day Sunday Challenge Court #1</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cal__col">
+					<div class="cal__day">
+						<h4 class="cal__dayhdr">27</h4>
+						<div class="cal__events">
+							<div class="cal__event x2 skills">
+								<h6>8:00am - 10:00am</h6>
+								<p>Skill Level 2.5 - 3.5</p>
+							</div>
+							<div class="cal__event x2 cbts">
+								<h6>10:00am - 12:00pm</h6>
+								<p>CTBS and Friends</p>
+							</div>
+							<div class="cal__event x1 lessons">
+								<h6>12:00pm - 1:00pm</h6>
+								<p>Beginner Lessons</p>
+							</div>
+							<div class="cal__event x1 lessons">
+								<h6>2:00pm - 2:00pm</h6>
+								<p>Adv. Beginner Lessons</p>
+							</div>
+							<div class="cal__event x4 skills">
+								<h6>2:00pm - Dusk</h6>
+								<p>Skill Level 4.0</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cal__col">
+					<div class="cal__day">
+						<h4 class="cal__dayhdr">28</h4>
+						<div class="cal__events">
+							<div class="cal__event x4">
+								<h6>8:00am - 12:00pm</h6>
+								<p>Open Play</p>
+							</div>
+							<div class="cal__event x6">
+								<h6>12:00pm - Dusk</h6>
+								<p>Open Play</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cal__col">
+					<div class="cal__day">
+						<h4 class="cal__dayhdr">27</h4>
+						<div class="cal__events">
+							<div class="cal__event x2 skills">
+								<h6>8:00am - 10:00am</h6>
+								<p>Skill Level 2.5 - 3.5</p>
+							</div>
+							<div class="cal__event x2 cbts">
+								<h6>10:00am - 12:00pm</h6>
+								<p>CTBS and Friends</p>
+							</div>
+							<div class="cal__event x3">
+								<h6>12:00pm - 3:00pm</h6>
+								<p>Open Play</p>
+							</div>
+							<div class="cal__event x3 skills">
+								<h6>3:00pm - Dusk</h6>
+								<p>Skill Level 4.5+</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cal__col">
+					<div class="cal__day">
+						<h4 class="cal__dayhdr">28</h4>
+						<div class="cal__events">
+							<div class="cal__event x4">
+								<h6>8:00am - 12:00pm</h6>
+								<p>Event Number One</p>
+							</div>
+							<div class="cal__event x6">
+								<h6>12:00pm - Dusk</h6>
+								<p>Open Play</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cal__col">
+					<div class="cal__day">
+						<h4 class="cal__dayhdr">27</h4>
+						<div class="cal__events">
+							<div class="cal__event x2 skills">
+								<h6>8:00am - 10:00am</h6>
+								<p>Skill Level 2.5 - 3.5</p>
+							</div>
+							<div class="cal__event x2 cbts">
+								<h6>10:00am - 12:00pm</h6>
+								<p>CTBS and Friends</p>
+							</div>
+							<div class="cal__event x2 lessons">
+								<h6>12:00pm - 1:00pm</h6>
+								<p>Beginner Lessons</p>
+							</div>
+							<div class="cal__event x4">
+								<h6>12:00pm - Dusk</h6>
+								<p>Open Play</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cal__col">
+					<div class="cal__day">
+						<h4 class="cal__dayhdr">27</h4>
+						<div class="cal__events">
+							<div class="cal__event x3 skills">
+								<h6>8:00am - 11:00am</h6>
+								<p>Skill Level 5.0+</p>
+							</div>
+							<div class="cal__event x3 skills">
+								<h6>11:00am - 2:00pm</h6>
+								<p>Skill Level 4.5+</p>
+							</div>
+							<div class="cal__event x4">
+								<h6>2:00pm - Dusk</h6>
+								<p>Open Play</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container" style="background-color: #666; min-height: 400px; display: none;">
+	<div class="pbcal">
+		<div class="pbcal__col--times">
+			<div class="pbcal__entry--time"><p>8 AM</p></div>
+			<div class="pbcal__entry--time"><p>9 AM</p></div>
+			<div class="pbcal__entry--time"><p>10 AM</p></div>
+			<div class="pbcal__entry--time"><p>11 AM</p></div>
+			<div class="pbcal__entry--time"><p>12 AM</p></div>
+			<div class="pbcal__entry--time"><p>1 PM</p></div>
+			<div class="pbcal__entry--time"><p>2 PM</p></div>
+			<div class="pbcal__entry--time"><p>3 PM</p></div>
+			<div class="pbcal__entry--time"><p>4 PM</p></div>
+			<div class="pbcal__entry--time"><p>5 - DUSK</p></div>
+		</div>
+		<div class="pbcal__col">
+			<div class="pbcal__entry--closed four-hour">
+				<p class="entry-text">Courts Closed for Church</p>
+			</div>
+			<div class="pbcal__entry--openplay six-hour">
+				<p class="entry-text">Open Play <br />Sunday Funday Challenge Court</p>
+			</div>
+		</div>
+		<div class="pbcal__col">
+			<div class="pbcal__entry--cbts four-hour">
+				<p class="entry-text">CBTS and Friends</p>
+			</div>
+			<div class="pbcal__entry--lessons one-hour">
+				<p class="entry-text">Beginners</p>
+			</div>
+			<div class="pbcal__entry--lessons one-hour">
+				<p class="entry-text">Adv. Beginners</p>
+			</div>
+			<div class="pbcal__entry--skills four-hour">
+				<p class="entry-text">Skill Level 4.0+</p>
+			</div>
+		</div>
+		<div class="pbcal__col">
+			<div class="pbcal__entry--openplay six-hour">
+				<p class="entry-text">Open Play<br /><br />All Day</p>
+			</div>
+			<div class="pbcal__entry--openplay six-hour">
+				<p class="entry-text">woohoo!</p>
+			</div>
+		</div>
+		<div class="pbcal__col">
+			<div class="pbcal__entry--cbts four-hour">
+				<p class="entry-text">CBTS and Friends</p>
+			</div>
+			<div class="pbcal__entry--openplay three-hour">
+				<p class="entry-text">Open Play</p>
+			</div>
+			<div class="pbcal__entry--skills three-hour">
+				<p class="entry-text">Skill Level 4.0+</p>
+			</div>
+		</div>
+		<div class="pbcal__col">
+			<div class="pbcal__entry--openplay six-hour">
+				<p class="entry-text">Open Play<br /><br />All Day</p>
+			</div>
+			<div class="pbcal__entry--openplay six-hour">
+				<p class="entry-text">woohoo!</p>
+			</div>
+		</div>
+		<div class="pbcal__col">
+			<div class="pbcal__entry--cbts four-hour">
+				<p class="entry-text">CBTS and Friends</p>
+			</div>
+			<div class="pbcal__entry--lessons one-hour">
+				<p class="entry-text">Beginners</p>
+			</div>
+			<div class="pbcal__entry--lessons one-hour">
+				<p class="entry-text">Adv. Beginners</p>
+			</div>
+			<div class="pbcal__entry--skills four-hour">
+				<p class="entry-text">Skill Level 4.0+</p>
+			</div>
+		</div>
+		<div class="pbcal__col">
+			<div class="pbcal__entry--skills three-hour">
+				<p class="entry-text">Skill Level 5.0+</p>
+			</div>
+			<div class="pbcal__entry--skills three-hour">
+				<p class="entry-text">Skill Level 4.5+</p>
+			</div>
+			<div class="pbcal__entry--openplay six-hour">
+				<p class="entry-text">Open Play<br /><br />All Day</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="container--wide footer">
+	<p>COPYRIGHT &copy; 2017 ST. MICHAEL'S BY-THE-SEA PICKLEBALL ASSOCIATION. ALL RIGHTS RESERVED.</p>
+</footer>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="./schedule.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	function getEventHtml( e ) {
+		var html = '<div class="cal__event '+e.timeStyle+' '+e.typeStyle+'"';
+
+		if ( e.img ) {
+			html += ' style="background-image: url('+e.img+');"';
+		}
+
+		html += '>';		// close opening div tag
+		html += '<h6>'+e.timeBegin+' - '+e.timeEnd+'</h6>';
+		html += '<p>'+e.desc+'</p>';
+		html += '</div>';
+
+		return( html );
+	}
+
+	function getDayHtml( day ) {
+
+		var html = '<div class="cal__col">';
+		var days = new Array( "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+
+		var dayOfWeek = days[day.date.getDay()];
+		var theDay = day.date.getDate();
+
+		html += '<h4 class="cal__col">'+dayOfWeek+'</h4>';
+		html += '<div class="cal__day">';
+		html += '<h4 class="cal__dayhdr">'+theDay+'</h4>';
+		html += '<div class="cal__events">';
+
+        $.each(day.events, function(i, e){
+            html += getEventHtml(e);
+        });
+
+		html += "</div></div></div>";
+
+		return( html );
+	}
+
+	function getCalendarHeader( schedule ) {
+		
+		var html = "";
+
+		html += '<div class="cal__row">';
+		html += '<div class="cal__month-header">'
+		html += '<h2 class="cal__month-header-title">'+schedule.month+' '+schedule.year+'</h2>';
+		html += '<h4 class="cal__month-header-nav">'
+		html += '<span class="nav-control-prev title="Previous Week"">&lt;&lt;</span>';
+		html += '<span class="nav-range">'+'Dec 12, 2017 - Dec 25, 2017'+'</span>';
+		html += '<span class="nav-control-next" title="Next Week">&gt;&gt;</span></h2>';
+		html += '</div>';
+		html += '</div>';
+
+		html += '<div id="js-weeks" class="cal__row">';
+		return( html )
+	}
+
+	function setActiveWeek( schedule, inc ) {
+		var date1   = new Date(schedule.startDate);
+		var range1  = "";
+		var range2  = "";
+		var curWeek = '#week'+schedule.week;
+		var newWeek = '#week'+(schedule.week + inc);
+		var months = new Array( "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" );
+
+		date1.setDate(date1.getDate() + ((schedule.week + inc) * 7));
+		range1 = months[date1.getMonth()]+' '+date1.getDate()+', '+date1.getFullYear();
+
+		date1.setDate(date1.getDate() + 6);
+		range2 = months[date1.getMonth()]+' '+date1.getDate()+', '+date1.getFullYear();
+
+		schedule.week += inc;
+
+		if ( !inc ) {
+			$(curWeek).show();
+			$('.nav-range').text(range1+' - '+range2);
+		}
+		else if ( inc > 0 ) {			
+			$(curWeek).addClass('slide-out-right');
+			$(curWeek).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+
+				$(curWeek).hide();
+				$(curWeek).removeClass('slide-out-right');
+
+				$(newWeek).show().addClass('slide-in-left');
+				$(newWeek).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+					$('.nav-range').text(range1+' - '+range2);
+					$(newWeek).removeClass('slide-in-left');
+				});
+			});
+		}
+		else {
+			$(curWeek).addClass('slide-out-left');
+			$(curWeek).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+
+				$(curWeek).hide();
+				$(curWeek).removeClass('slide-out-left');
+
+				$(newWeek).show().addClass('slide-in-right');
+				$(newWeek).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+					$('.nav-range').text(range1+' - '+range2);
+					$(newWeek).removeClass('slide-in-right');
+				});
+
+			});
+		}
+
+		$('.nav-control-prev, .nav-control-next').removeClass('disabled');
+
+		if ( schedule.week <=0 ) {
+			$('.nav-control-prev').addClass('disabled');
+		}
+		else if ( schedule.week >= (schedule.nWeeks - 1) ) {
+			$('.nav-control-next').addClass('disabled');
+		}
+	}
+
+	function initCalendar( schedule ) {
+		var calHtml = "";
+		var weekHtml = "";
+		var curDate = new Date(schedule.date);
+		var today   = new Date();
+		var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+		var months = new Array( "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" );
+
+		schedule.month = months[curDate.getMonth()];
+		schedule.year  = curDate.getFullYear();
+
+		/*
+		 * after setting month & year, calculate first day of calendar adjusted for previous month
+		 */
+		curDate.setDate(curDate.getDate() - curDate.getDay());
+		schedule.startDate = curDate.toString();
+
+
+		schedule.nWeeks = schedule.weeks.length;
+		today = new Date(today.toDateString());			// strip off time part
+		//today = new Date("Apr 15 2017");				// testing
+		schedule.week = Math.floor(Math.round(Math.abs((today.getTime() - curDate.getTime())/(oneDay))) / 7);
+
+		if ( (schedule.week < 0) || (schedule.week >= schedule.nWeeks) ) {
+			schedule.week = 0;
+		}
+
+		calHtml = getCalendarHeader( schedule );
+
+        $.each(schedule.weeks, function(i, week){
+        	weekHtml = '<div id="week'+i+'" class="cal__week">';
+
+        	$.each(week, function(j, day) {
+        		day.date = curDate;
+        		weekHtml += getDayHtml(day);
+				curDate.setDate(curDate.getDate() + 1);
+        	});
+            
+            weekHtml += '</div>';
+
+            calHtml += weekHtml;
+        });
+
+        calHtml += '</div>';
+
+		$('#js-calendar').html(calHtml);
+
+		$('.cal__week').hide();
+
+		setActiveWeek(schedule, 0);
+	}
+
+	function initPage() {
+		initCalendar( schedule );
+
+		$("body").on("click", ".cal__month-header-title", function(e) {
+			alert("window width: "+$(window).width());
+		});
+
+		$("body").on("click", ".nav-control-prev", function(e) {
+			if ( !$(this).hasClass("disabled") ) {				
+				setActiveWeek( schedule, -1 );
+			}
+		});
+
+		$("body").on("click", ".nav-control-next", function(e) {
+			if ( !$(this).hasClass("disabled") ) {	
+				setActiveWeek( schedule, 1 );
+			}
+		});
+
+	}
+	initPage();
+
+	$(window).resize(function() {
+	    var width = $(window).width();
+
+	    if (width < 800) {
+	        $('.nav__parent').removeClass('sub-menu-parent');
+	        $('.nav__childmenu').removeClass('sub-menu');
+	    }
+	    else {
+	        $('.nav__parent').addClass('sub-menu-parent');
+	        $('.nav__childmenu').addClass('sub-menu');
+	    }
+	});
+	$(window).trigger("resize");
+
+
+});
+</script>
+</body>
+</html>
